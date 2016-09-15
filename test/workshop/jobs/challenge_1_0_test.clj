@@ -45,7 +45,9 @@
    {:n 6}
    {:n 7}
    {:n 8}
-   {:n 9}])
+   {:n 9}
+   ;I added this value
+   {:n 10}])
 
 (def expected-output
   [{:n 1}
@@ -57,7 +59,9 @@
    {:n 49}
    {:n 64}
    {:n 81}
-   {:n 100}])
+   {:n 100}
+   ;I added this expectation
+   {:n 121}])
 
 (deftest test-level-1-challenge-0
   (let [cluster-id (java.util.UUID/randomUUID)
@@ -77,4 +81,6 @@
         (assert job-id "Job was not successfully submitted")
         (feedback-exception! peer-config job-id)
         (let [[results] (u/collect-outputs! lifecycles [:write-segments])]
-          (u/segments-equal? expected-output results))))))
+          (do (u/segments-equal? expected-output results)
+              (clojure.pprint/pprint results))
+          )))))
