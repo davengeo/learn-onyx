@@ -19,7 +19,8 @@
   [{:sentence "Getting started with Onyx is easy"}
    {:sentence "This is a segment"}
    {:sentence "Segments are Clojure maps"}
-   {:sentence "Sample inputs are easy to fabricate"}])
+   {:sentence "Sample inputs are easy to fabricate"}
+   {:sentence "This was added by me."}])
 
 (deftest test-level-0-challenge-0
   (let [cluster-id (java.util.UUID/randomUUID)
