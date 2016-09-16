@@ -66,4 +66,6 @@
         (assert job-id "Job was not successfully submitted")
         (feedback-exception! peer-config job-id)
         (let [[results] (u/collect-outputs! lifecycles [:write-segments])]
-          (u/segments-equal? expected-output results))))))
+          (do
+            (u/segments-equal? expected-output results)
+            (clojure.pprint/pprint results)))))))
